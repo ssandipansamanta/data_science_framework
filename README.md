@@ -1,7 +1,7 @@
 ### Creating Data Science Framework
 
-This framework would be helpful to know different packages available in different current languages. 
-Currently I am trying to do this for the following languages.
+This framework would be helpful to know different packages available in different languages. 
+Currently I am trying to cover same analysis using the following languages and prepare a comparison study between them.
 
 * R
 * python
