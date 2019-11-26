@@ -94,7 +94,7 @@ let
         Random.seed!(seed)
         phi = rand(Uniform(0,1),1)[1]
         tau = Base.minimum([1,L1[1][1]/L0[1][1]])
-        if(tau > phi)
+        if((tau > phi) & (L0[3][1] > 0))
             initialAlpha = L0[2][1];initialBeta = L0[3][1];initialLambda = L0[4][1];condition = 1;
         else
             initialAlpha = initialAlpha; initialBeta = initialBeta;initialLambda = initialLambda;condition = 0;
