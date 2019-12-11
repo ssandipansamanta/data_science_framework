@@ -1,6 +1,7 @@
 # Project Details:
 MCMC approach to fit a non-linear model.
 ---
+Please have a look into the methodology deck for more details about the functional form as well as the estimation procedure.
 
 ### Folder Structure:
 ```
