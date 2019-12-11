@@ -1,4 +1,6 @@
+# Project Details:
 MCMC approach to fit a non-linear model.
+---
 
 Folder Structure:
 Inputs: Input file(.csv format)
