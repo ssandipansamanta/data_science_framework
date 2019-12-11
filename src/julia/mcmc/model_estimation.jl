@@ -143,7 +143,7 @@ Yhat = convert(Array{Float64,1},inputData.predicted)
 actual = plot(inputData.Rainfall,inputData.One_SPI,seriestype=:scatter,label="Actual")
 predicted = plot!(actual, inputData.Rainfall, inputData.predicted,seriestype=:scatter,title= "Fittings for " * zone *" in "*month , label="Predicted")
 savefig(predicted,outputPath * "Graphs/Fittings/Fittings_" * zone *"_"*month * ".png")
-CSV.write(outputPath * "/Fittings/Final_Estimates_" * zone *"_"*month * ".csv", inputData)
+CSV.write(outputPath * "/Fittings/Actual_Predicted_" * zone *"_"*month * ".csv", inputData)
 
 
 # using Plots
