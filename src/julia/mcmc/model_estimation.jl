@@ -35,7 +35,19 @@ using Random, Distributions, CSV, LinearAlgebra, GLM, DataFrames, Statistics, Da
 inputData = CSV.read(inputPath * fileName)
 Y = convert(Array{Float64,1},inputData.One_SPI)
 X = convert(Array{Float64,1},inputData.Rainfall)
-xMin = 0; xSecondMin = quantile!(X, 0.25);noObs = length(Y)
+xMin = 0; 
+
+if quantile!(X, 0.25) > 0
+    xSecondMin = quantile!(X, 0.25)
+elseif quantile!(X, 0.50) > 0
+    xSecondMin = quantile!(X, 0.50)
+elseif quantile!(X, 0.75) > 0
+    xSecondMin = quantile!(X, 0.75)
+else
+    xSecondMin = quantile!(X, 1.00)
+end
+
+noObs = length(Y)
 inputData[:adjustedRainfall] = Base.log.(inputData[:Rainfall] .+ xSecondMin)
 zone = inputData[:Zone][1]
 month = inputData[:Month][1]
