@@ -1,3 +1,10 @@
+import spark.implicits._
+import spark.sqlContext.implicits._
+import org.apache.spark.sql.functions.{col, count, lit, rank, _}
+import org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType}
+import org.apache.spark.sql.Row
+import org.apache.spark.sql.hive.HiveContext
+
 val schemaName = "SCHEMA_NAME"
 val names = Seq("TABLE_NAME_1","TABLE_NAME_2")
 
@@ -51,3 +58,5 @@ for (tableNames <- names) {
   
   allTableFieldSummaryInfo = allTableFieldSummaryInfo.union(tableFieldSummaryInformation)
 }
+
+allTableFieldSummaryInfo.write.mode("overwrite").saveAsTable("/mention/your/location");
