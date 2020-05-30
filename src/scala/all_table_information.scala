@@ -13,7 +13,7 @@ var allTable = spark.createDataFrame(sc.emptyRDD[Row], schema) //spark.createDat
 
 val schemaName = "SCHEMA_NAME"
 val names = Seq("TABLE_NAME_1",	"TABLE_NAME_2")
-// val _c = 0
+
 for (tableNames <- names) {
   val selectTables = spark.read.table(schemaName.concat(".".concat(tableNames))).limit(1)  
   val selectColumns = selectTables.columns.toList
