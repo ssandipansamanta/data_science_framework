@@ -22,10 +22,10 @@ def merging_data_frame(left_data_frame: pd.DataFrame, right_data_frame: pd.DataF
 
     return output_df
 
-def read_csv_file(input_path: str, file_name: str) -> pd.DataFrame:
-    lg.info("--- [INFO]: Importing "+ file_name + " File.")
+def read_csv_file(input_path: str, file_name: str, encoding_type: str, delimiter_type: str) -> pd.DataFrame:
+    lg.info("--- [INFO]: Importing " + file_name + " File.")
     try:
-        output = pd.read_csv(input_path + file_name + '.csv')
+        output = pd.read_csv(input_path + file_name + '.csv', encoding=encoding_type, engine='python', delimiter=delimiter_type)
         lg.info("--- [INFO]: Importing Complete for " + file_name + " File.")
         return output
     except:
@@ -41,16 +41,13 @@ def reading_config(config_file_path: str, file_name: str, orient_type: str, typ_
     except ImportError:
         lg.error("--- [ERROR]: Reading Configuration File Failed")
 
-def write_to_csv(out_path: str, data_export: pd.DataFrame, file_name: str, extn_of_file: str, time_stamp_flag: bool,
-                 index_flag: bool) -> None:
+def write_to_csv(out_path: str, data_export: pd.DataFrame, file_name: str, extn_of_file: str, time_stamp_flag: bool, index_flag: bool, encoding_type: str) -> None:
     if time_stamp_flag:
         data_export.to_csv(
-            out_path + '/' + file_name + '_' + datetime.now().strftime('%Y-%m-%d_%H_%M_%S') + '.' + extn_of_file,
-            index=index_flag)
+            out_path + '/' + file_name + '_' + datetime.now().strftime('%Y-%m-%d_%H_%M_%S') + '.' + extn_of_file, index=index_flag, encoding=encoding_type)
     else:
-        data_export.to_csv(out_path + '/' + file_name + '.' + extn_of_file, index=index_flag)
+        data_export.to_csv(out_path + '/' + file_name + '.' + extn_of_file, index=index_flag, encoding=encoding_type)
     lg.info("--- [INFO]: Export is completed.")
-
 
 def write_to_json(out_path: str, json_file_name: str, input_json: dict, ascii_flag: bool, indent_space: int,
                   encoding: str, time_stamp_flag: bool) -> None:
