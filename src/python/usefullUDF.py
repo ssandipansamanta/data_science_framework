@@ -59,3 +59,16 @@ def write_to_json(out_path: str, json_file_name: str, input_json: dict, ascii_fl
         with open(out_path + json_file_name + '.json', 'w', encoding=encoding) as f:
             json.dump(input_json, f, ensure_ascii=ascii_flag, indent=indent_space)
     lg.info("--- [INFO]: JSON export is completed.")
+    
+def date_formatting(input_df: pd.DataFrame, date_var_name: str, current_format: str) -> pd.DataFrame:
+    # desired_format = '%d-%b-%Y'
+    # current_format = '%m/%d/%Y'
+    input_df[date_var_name+'_formatted'] = pd.to_datetime(input_df[date_var_name], format=current_format) #.dt.strftime(desired_format)
+    input_df.drop([date_var_name], axis=1, inplace=True)
+    input_df.rename(columns={date_var_name+'_formatted': date_var_name}, inplace=True)
+    return input_df
+
+def unique_list(l):
+    ulist = []
+    [ulist.append(x) for x in l if x not in ulist]
+    return ulist
