@@ -72,3 +72,9 @@ def unique_list(l):
     ulist = []
     [ulist.append(x) for x in l if x not in ulist]
     return ulist
+  
+def bool_type_string(input_df):
+    mask = distinct_values.applymap(type) != bool
+    d = {True: 'TRUE', False: 'FALSE'}
+    output_df = input_df.where(mask, input_df.replace(d))
+    return output_df
