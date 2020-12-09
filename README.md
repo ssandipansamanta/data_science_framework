@@ -6,21 +6,31 @@ Currently I am trying to cover same analysis using the following languages and p
 * R
 * python
 * Julia
-* java
 * scala
 
 The directory set up is as follows:
 ```
 data_science_framework:
-
-|-- Inputs: Keep input files
-|-- Outputs: Outputs will be saved in this folder.
+Project/
+|-- data/
+|      |-- inputs: Keep input files
+|      |-- outputs/
+|             |-- charts: Visual outputs will be saved in this folder.
+|             |-- table: csv/txt summary outputs will be saved in this folder.
+|      |-- interim:
+|-- documents
+|-- requirements.txt
 |-- src
-       |-- R: R-codes
-       |-- python: python-codes
-       |-- julia: Julia-codes
-       |-- Java: Java-codes
-       |-- scala: scala-codes
+|      |-- r: R-codes
+|      |-- python: python-codes
+|             |-- __init__.py
+|             |-- etl
+|                   |-- reading_input_files.py
+|                   |-- data_transformation.py
+|             |-- models
+|             |-- visualization
+|      |-- julia: Julia-codes
+|      |-- scala: scala-codes
        
        
 ```
