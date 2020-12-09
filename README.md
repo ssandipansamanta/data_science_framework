@@ -12,14 +12,28 @@ The directory set up is as follows:
 ```
 data_science_framework:
 Project/
+|
+|-- config/
+|      |-- model_config_param.json: Details of model hyperparameter min/max level etc.
+|      |-- database_config.json: Details of data base configurations.
+|
 |-- data/
 |      |-- inputs: Keep input files
 |      |-- outputs/
 |             |-- charts: Visual outputs will be saved in this folder.
 |             |-- table: csv/txt summary outputs will be saved in this folder.
 |      |-- interim:
-|-- documents
-|-- requirements.txt
+|
+|-- documents/
+|      |-- literature:
+|      |-- Excel Template: Naming Convention YYYYMMDD_NAME_OF_FILE_INITIALS_VER.xlsb
+|      |-- Powerpoint:Naming Convention YYYYMMDD_NAME_OF_FILE_INITIALS_VER
+|
+|-- logs/
+|      |-- etl_logs:
+|      |-- model_performance_logs:
+|      |-- visualization_logs:
+|
 |-- src
 |      |-- r: R-codes
 |      |-- python: python-codes
@@ -31,6 +45,7 @@ Project/
 |             |-- visualization
 |      |-- julia: Julia-codes
 |      |-- scala: scala-codes
-       
+|
+|-- requirements.txt       
        
 ```
